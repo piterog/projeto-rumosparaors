@@ -15,7 +15,7 @@ class CreatePropostasTable extends Migration
     {
         Schema::create('propostas', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('eixos_id')->unsigned();
+			$table->integer('eixo_id')->unsigned();
 			$table->string('descricao', 255);
 			$table->timestamps();
 		});

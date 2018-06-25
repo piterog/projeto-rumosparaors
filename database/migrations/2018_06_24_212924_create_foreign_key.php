@@ -14,12 +14,12 @@ class CreateForeignKey extends Migration
     public function up()
     {
         Schema::table('propostas', function(Blueprint $table) {
-			$table->foreign('eixos_id')->references('id')->on('eixos')
+			$table->foreign('eixo_id')->references('id')->on('eixos')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
 		Schema::table('prioridades', function(Blueprint $table) {
-			$table->foreign('propostas_id')->references('id')->on('propostas')
+			$table->foreign('proposta_id')->references('id')->on('propostas')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
