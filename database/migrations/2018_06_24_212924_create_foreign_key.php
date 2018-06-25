@@ -29,57 +29,7 @@ class CreateForeignKey extends Migration
 						->onUpdate('restrict');
 		});
 		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('eixo_id')->references('id')->on('eixos')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop1')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop2')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop3')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop4')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop5')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop6')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop7')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop8')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop9')->references('id')->on('propostas')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('prop10')->references('id')->on('propostas')
+			$table->foreign('proposta_id')->references('id')->on('propostas')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
@@ -105,34 +55,7 @@ class CreateForeignKey extends Migration
 			$table->dropForeign('escolhas_eixo_id_foreign');
 		});
 		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop1_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop2_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop3_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop4_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop5_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop6_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop7_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop8_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop9_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prop10_foreign');
+			$table->dropForeign('escolhas_prioridade_ip_foreign');
 		});
     }
 }
