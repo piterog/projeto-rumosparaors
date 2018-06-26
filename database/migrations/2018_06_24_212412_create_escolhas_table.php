@@ -15,18 +15,9 @@ class CreateEscolhasTable extends Migration
     {
         Schema::create('escolhas', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('eixo_id')->unsigned();
-			$table->integer('prop1')->unsigned()->nullable();
-			$table->integer('prop2')->unsigned()->nullable();
-			$table->integer('prop3')->unsigned()->nullable();
-			$table->integer('prop4')->unsigned()->nullable();
-			$table->integer('prop5')->unsigned()->nullable();
-			$table->integer('prop6')->unsigned()->nullable();
-			$table->integer('prop7')->unsigned()->nullable();
-			$table->integer('prop8')->unsigned()->nullable();
-			$table->integer('prop9')->unsigned()->nullable();
-            $table->integer('prop10')->unsigned()->nullable();
-			$table->timestamps();
+			$table->integer('prioridade_ip')->unsigned();
+            $table->timestamps();
+            $table->string('ip');
 		});
     }
 
