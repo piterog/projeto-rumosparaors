@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index');
+Route::post('/store', 'IndexController@store');
 
 
 Route::group(['prefix' => 'admin'], function () {

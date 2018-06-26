@@ -15,7 +15,7 @@ class CreateEscolhasTable extends Migration
     {
         Schema::create('escolhas', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('prioridade_ip')->unsigned();
+            $table->integer('prioridade_id')->unsigned();
             $table->timestamps();
             $table->string('ip');
 		});

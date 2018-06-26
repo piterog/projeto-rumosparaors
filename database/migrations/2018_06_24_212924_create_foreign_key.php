@@ -29,7 +29,7 @@ class CreateForeignKey extends Migration
 						->onUpdate('restrict');
 		});
 		Schema::table('escolhas', function(Blueprint $table) {
-			$table->foreign('proposta_id')->references('id')->on('propostas')
+			$table->foreign('prioridade_id')->references('id')->on('prioridades')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
@@ -52,10 +52,7 @@ class CreateForeignKey extends Migration
 			$table->dropForeign('contribuicoes_area_foreign');
 		});
 		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_eixo_id_foreign');
-		});
-		Schema::table('escolhas', function(Blueprint $table) {
-			$table->dropForeign('escolhas_prioridade_ip_foreign');
+			$table->dropForeign('escolhas_prioridades_id_foreign');
 		});
     }
 }
