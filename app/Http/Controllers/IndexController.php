@@ -62,8 +62,16 @@ class IndexController extends Controller
 
     public function storeParticipe(Request $request)
     {   
-
-        return Contribuicao::create($request->all());
+        /*
+        $this->validate($request, [
+            'nome' => 'required|max:255',
+            'email' => 'required',
+            'telefone' => 'required',
+            'cidade' => 'required',
+            'sugestao' => 'required',
+        ]);
+        */
+        Contribuicao::create($request->all());
     }
 
     /**

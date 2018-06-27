@@ -14,7 +14,7 @@ class AlterContribuicoesAddDefaultVisivel extends Migration
     public function up()
     {
         Schema::table('contribuicoes', function (Blueprint $table) {
-            $table->integer('visivel')->default(0)->change();
+            $table->string('visivel',1)->default('n')->change();
         });
     }
 

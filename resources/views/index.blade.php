@@ -69,7 +69,6 @@ avance e volte a ser protagonista nacional. </p>
     {{-- --------------------------------------------------------------------------------------------- --}}
     {{-- --------------------------- FORMULÁRIO PRONTO, FALTA ESTILIZAR ------------------------------ --}}
     {{-- --------------------------------------------------------------------------------------------- --}}
-    {{-- 
     <form action="store" method="POST">
         {{ csrf_field() }}
         @forelse($eixos as $eixo)
@@ -92,7 +91,6 @@ avance e volte a ser protagonista nacional. </p>
 
         <input type="submit" value="Enviar">
     </form>
-    --}}
 
     <section action="storeParticipe" class='participe'>
         <h2>Participe</h2>
