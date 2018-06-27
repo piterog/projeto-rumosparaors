@@ -19,7 +19,7 @@ form button{
 	border-radius: 3px !important;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 11px;
+	font-size: 14px;
 	padding: 10px 20px;
 	-webkit-box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
 	-moz-box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
@@ -171,11 +171,11 @@ section.eixos .eixo-itens{
 	margin: 20px;
 }
 .eixo--tipos{
-	column-width: 320px;
-	column-gap: 15px;
-  	width: 90%;
-	max-width: 1100px;
-	margin: 50px auto;
+	column-width: 380px;
+    column-gap: 20px;
+    width: 90%;
+    /* max-width: 1100px; */
+    margin: 50px auto;
 }
 .eixo--tipo{
 	display: inline-block;
@@ -260,9 +260,6 @@ section.contribuicoes .contribuicao{
     position: relative;
     margin-bottom: 0px;
     padding-top: 5px;
-}
-button{
-	font-size: 14px;
 }
 .alert{
 	position: fixed;
