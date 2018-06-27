@@ -1,7 +1,10 @@
 @extends('layouts.base')
 
 @section('body')
-    
+@if (Session::has('message'))
+   <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
     <section class='video'>
         <video autoplay muted>
             <source src="/video/RUMOS.mp4" type="video/mp4">

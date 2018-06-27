@@ -9,7 +9,10 @@ use App\Escolha;
 use App\Prioridade;
 use App\Proposta;
 use App\User;
-
+use Illuminate\Support\Facades\Log;
+use DB;
+use Session;
+use Illuminate\Support\Facades\Redirect;
 class IndexController extends Controller
 {
     /**
@@ -45,19 +48,47 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
+        /*
         foreach ($request->all() as $key => $v) {
             if(is_int($key) && Proposta::find($key)){
-                foreach($v as $vote){{ 
+                foreach($v as $vote){
                     $escolha[] = Escolha::create([
                         'prioridade_id' => $vote,
                         'ip' => \Request::ip()
                     ]);
-                 }}
+                 }
             }
         }
-
         return $escolha;
+        */
+        foreach ($request->all() as $key => $v) {
+            if(is_int($key) && Proposta::find($key)){
+                DB::beginTransaction();
 
+                try{
+                    $i = 0;
+                    foreach($v as $vote){ 
+                        $escolha[$i] = [
+                            'prioridade_id' => $vote,
+                            'created_at' => 'now()',
+                            'updated_at' => 'now()',
+                            'ip' => \Request::ip(),
+                        ];
+                    $i++;
+                    }
+                    Escolha::insert($escolha);
+                    DB::commit();
+                    Session::flash('message', "Muito obrigado pela sua contribuição!");
+                    return Redirect::back();
+                    
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    Session::flash('message', "Infelizmente não foi possível validar seu voto, tente novamente em alguns instantes!");
+                    return Redirect::back();
+                    Log::error($e->getMessage());
+                }
+            }
+        }
     }
 
     public function storeParticipe(Request $request)
@@ -71,7 +102,18 @@ class IndexController extends Controller
             'sugestao' => 'required',
         ]);
         */
-        Contribuicao::create($request->all());
+
+        //Contribuicao::create($request->all());
+        Contribuicao::create([
+            'nome' => $request->nome ,
+            'email' => $request->email ,
+            'telefone' => $request->telefone ,
+            'cidade' => $request->cidade ,
+            'area' => $request->area ,
+            'sugestao' => $request->sugestao ,
+            'visivel' => 0,
+            'ordem' => '0',
+        ]);
     }
 
     /**
