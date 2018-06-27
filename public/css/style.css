@@ -13,7 +13,7 @@ footer{
 footer p{
 	font-size: 15px;
 }
-button{
+form button{
 	background-color: #ee4859;
 	border: none;
 	border-radius: 3px !important;
@@ -131,12 +131,15 @@ section.sobre .slider{
 }
 
 section.eixos .eixo-itens{
-	display: flex;
-	width: 100%;
+	column-width: 320px;
+	column-gap: 15px;
+  width: 90%;
+	max-width: 1100px;
+	margin: 50px auto;
 }
 .eixo-itens .item{
-	width: 30%;
-	flex-direction: row;
+	display: inline-block;
+  column-break-inside: avoid;
 }
 .eixo-itens .item h3{
 	background-color: #839aa6;
@@ -168,21 +171,19 @@ section.eixos .eixo-itens{
 	margin: 20px;
 }
 .eixo--tipos{
-	display: flex;
-	max-width: 900px;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: center;
-	margin: 0 auto;
+	column-width: 320px;
+	column-gap: 15px;
+  	width: 90%;
+	max-width: 1100px;
+	margin: 50px auto;
 }
 .eixo--tipo{
-	background-color: #fff;
-	border-radius: 20px;
-	padding: 20px;
-	flex: 1;
-	margin: 10px;
-	min-width: 320px;
-	float: lef;
+	display: inline-block;
+ 	column-break-inside: avoid;
+ 	background-color: #fff;
+ 	padding: 20px;
+ 	border-radius: 20px;
+ 	margin: 10px;
 }
 .eixo--tipo h3{
 	color: #536168;
@@ -198,6 +199,11 @@ section.eixos .eixo-itens{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 400;
+}
+
+@media screen and (max-width: 750px) { 
+  .eixo--tipos { column-gap: 0px; }
+  .eixo--tipo { width: 100%; }
 }
 .form{
 	margin: 15px 0;
@@ -254,4 +260,12 @@ section.contribuicoes .contribuicao{
     position: relative;
     margin-bottom: 0px;
     padding-top: 5px;
+}
+button{
+	font-size: 14px;
+}
+.alert{
+	position: fixed;
+    bottom: 0;
+    right: 10px;
 }

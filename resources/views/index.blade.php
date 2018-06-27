@@ -46,17 +46,19 @@ volte a ser protagonista nacional.</p>
         <h2>Eixos</h2>
         <p>O Movimento Rumos destaca cinco eixos fundamentais para colocar o Rio Grande novamente no caminho certo.</p>
         <div class='eixo-itens'>
+            @forelse($eixos as $eixo)
             <div class='item'>
-                @forelse($eixos as $eixo)
+                <div>
                     <h3>{{ $eixo->descricao }}</h3>
                     @forelse($eixo->propostas as $proposta)
                         <h4>{{ $proposta->descricao }}</h4>
                     @empty
                     @endforelse
+                </div>
+            </div>
                 @empty
                 <p>Ainda não há nenhum eixo cadastrado</p>
-                @endforelse
-            </div>
+            @endforelse
         </div>
     </section>
 
@@ -64,82 +66,69 @@ volte a ser protagonista nacional.</p>
         <h2>Propostas e Prioridades</h2>
         <p>Conheça as propostas e marque até 10 em cada eixo que você considera prioritária para que o Rio Grande
 avance e volte a ser protagonista nacional. </p>
-        
-        <div class='eixo--item'>
-            <h3>EIXO GESTÃO E FINANÇAS</h3>
-            <div class='eixo--tipos'>
-                <div class='eixo--tipo'>
-                    <h3>Planejamento</h3>
-                    <div class='form'>
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="#id">
-                          <label class="custom-control-label" for="#id">Aprimorar a metodologia utilizada de Planejamento
-Estratégico</label>
+        <form action="store" method="POST">
+            {{ csrf_field() }}
+            @forelse($eixos as $eixo)
+            <div class='eixo--item'>
+                <h3>{{$eixo->descricao}}</h3>
+                <div class='eixo--tipos'>
+                @forelse($eixo->propostas as $proposta)
+                    <div class='eixo--tipo'>
+                        <h3>{{ $proposta->descricao }}</h3>
+                        @forelse($proposta->prioridades as $prioridade )
+                        <div class='form'>
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" name='{{ $proposta->id }}[]' class="custom-control-input" id="{{$prioridade->id}}" value='{{$prioridade->id}}'>
+                              <label class="custom-control-label" for="{{$prioridade->id}}">{{ $prioridade->descricao }}</label>
+                            </div>
                         </div>
+                        @empty
+                        @endforelse
                     </div>
-                    <div class='form'>
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="#id">
-                          <label class="custom-control-label" for="#id">Realizar desdobramento do Planejamento de Governo
-alinhado aos Planos Estratégicos de desenvolvimento
-2015-2030 (Coredes)</label>
-                        </div>
-                    </div>
-                </div>
-                <div class='eixo--tipo'>
-                    <h3>Planejamento</h3>
-                    <div class='form'>
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="#id">
-                          <label class="custom-control-label" for="#id">Proposta</label>
-                        </div>
-                    </div>
-                </div>
-                <div class='eixo--tipo'>
-                    <h3>Planejamento</h3>
-                    <div class='form'>
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="#id">
-                          <label class="custom-control-label" for="#id">Proposta</label>
-                        </div>
-                    </div>
+                @empty
+                @endforelse
                 </div>
             </div>
-        </div>
+            @empty
+            @endforelse
+            <div class="form-group center">
+                <button type="submit" class="">Enviar</button>
+            </div>
+        </form>
     </section>
-
     <section class='participe'>
         <h2>Participe</h2>
         <p>Este é o seu espaço. Contribua com o Movimento Rumos e envie suas propostas para construir um Rio Grande melhor!</p>
-        <form>
+        <form action="storeParticipe" method="POST" >
+            {{ csrf_field() }}
             <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome">
+                <input type="text" name="nome" class="form-control" id="nome">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email">
             </div>
             <div class="form-group">
                 <label for="telefone">Telefone(DDD)</label>
-                <input type="text" class="form-control" id="telefone">
+                <input type="text" name="telefone" class="form-control" id="telefone">
             </div>
             <div class="form-group">
                 <label for="cidade">Cidade</label>
-                <input type="text" class="form-control" id="cidade">
+                <input type="text" name="cidade" class="form-control" id="cidade">
             </div>
             <div class="form-group">
                 <label for="area">Área</label>
                 <select class="custom-select" id="area">
                   @forelse($eixos as $eixo)
-                     <option>{{ $eixo->descricao }}</option>
+                     <option value="{{ $eixo->id }}">Eixo {{ $eixo->descricao }}</option>
                   @empty
                   @endforelse
                 </select>
             </div>
             <div class="form-group">
                 <label for="sugestao">Sugestão</label>
-                <textarea class="form-control" id="sugestao" rows="3"></textarea>
+                <textarea name="sugestao" class="form-control" id="sugestao" rows="3"></textarea>
             </div>
             <div class='form-group center'>
                 <button type='submit'>Envie e ajude o RS</button>

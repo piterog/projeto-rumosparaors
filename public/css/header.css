@@ -75,7 +75,7 @@ header .menu-header a{
 	display: block;
 	width: 100%;
 	text-align: right;
-	padding: 5px;
+	padding: 10px;
 	color: #536168;
 }
 header .menu-header a:first-child{

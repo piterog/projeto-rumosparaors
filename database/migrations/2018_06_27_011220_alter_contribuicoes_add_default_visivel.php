@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEscolhasTable extends Migration
+class AlterContribuicoesAddDefaultVisivel extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateEscolhasTable extends Migration
      */
     public function up()
     {
-        Schema::create('escolhas', function(Blueprint $table) {
-			$table->increments('id');
-            $table->integer('prioridade_id')->unsigned();
-            $table->timestamps();
-            $table->string('ip');
-		});
+        Schema::table('contribuicoes', function (Blueprint $table) {
+            $table->integer('visivel')->default(0)->change();
+        });
     }
 
     /**
@@ -28,6 +25,8 @@ class CreateEscolhasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('escolhas');
+        Schema::table('contribuicoes', function (Blueprint $table) {
+            $table->dropColumn('visivel');
+        });
     }
 }

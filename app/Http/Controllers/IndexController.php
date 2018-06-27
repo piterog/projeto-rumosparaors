@@ -20,7 +20,11 @@ class IndexController extends Controller
     public function index()
     {
         $eixos = Eixo::all();
-        return view('index', compact('eixos'));
+
+        $contribuicoes = Contribuicao::whereVisivel(1)->get();
+        
+        //return $eixos[0]->propostas[0]->prioridades;
+        return view('index', compact('eixos', 'contribuicoes'));
     }
 
     /**
@@ -41,7 +45,25 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach ($request->all() as $key => $v) {
+            if(is_int($key) && Proposta::find($key)){
+                foreach($v as $vote){{ 
+                    $escolha[] = Escolha::create([
+                        'prioridade_id' => $vote,
+                        'ip' => \Request::ip()
+                    ]);
+                 }}
+            }
+        }
+
+        return $escolha;
+
+    }
+
+    public function storeParticipe(Request $request)
+    {   
+
+        return Contribuicao::create($request->all());
     }
 
     /**
