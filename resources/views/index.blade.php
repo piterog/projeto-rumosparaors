@@ -45,25 +45,67 @@ volte a ser protagonista nacional.</p>
     <section class='eixos'>
         <h2>Eixos</h2>
         <p>O Movimento Rumos destaca cinco eixos fundamentais para colocar o Rio Grande novamente no caminho certo.</p>
+        <div class='eixo-itens'>
+            <div class='item'>
+                @forelse($eixos as $eixo)
+                    <h3>{{ $eixo->descricao }}</h3>
+                    @forelse($eixo->propostas as $proposta)
+                        <h4>{{ $proposta->descricao }}</h4>
+                    @empty
+                    @endforelse
+                @empty
+                <p>Ainda não há nenhum eixo cadastrado</p>
+                @endforelse
+            </div>
+        </div>
     </section>
 
     <section class='propostas'>
         <h2>Propostas e Prioridades</h2>
         <p>Conheça as propostas e marque até 10 em cada eixo que você considera prioritária para que o Rio Grande
 avance e volte a ser protagonista nacional. </p>
-
-         {{-- Com este código, tu consegue fazer a parte inicial, em que mostra cada eixo com sua proposta, só precisa estilizar --}}
-        @forelse($eixos as $eixo)
-            <h1>{{ $eixo->descricao }}</h1>
-            @forelse($eixo->propostas as $proposta)
-                <p>{{ $proposta->descricao }}</p>
-            @empty
-                <p>Ainda não há nenhuma proposta cadastrada</p>
-            @endforelse
-        @empty
-            <p>Ainda não há nenhum eixo cadastrado</p>
-        @endforelse
-        {{-- ------------------------------------------------------------------------------------------------------------------ --}}
+        
+        <div class='eixo--item'>
+            <h3>EIXO GESTÃO E FINANÇAS</h3>
+            <div class='eixo--tipos'>
+                <div class='eixo--tipo'>
+                    <h3>Planejamento</h3>
+                    <div class='form'>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="#id">
+                          <label class="custom-control-label" for="#id">Aprimorar a metodologia utilizada de Planejamento
+Estratégico</label>
+                        </div>
+                    </div>
+                    <div class='form'>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="#id">
+                          <label class="custom-control-label" for="#id">Realizar desdobramento do Planejamento de Governo
+alinhado aos Planos Estratégicos de desenvolvimento
+2015-2030 (Coredes)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class='eixo--tipo'>
+                    <h3>Planejamento</h3>
+                    <div class='form'>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="#id">
+                          <label class="custom-control-label" for="#id">Proposta</label>
+                        </div>
+                    </div>
+                </div>
+                <div class='eixo--tipo'>
+                    <h3>Planejamento</h3>
+                    <div class='form'>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="#id">
+                          <label class="custom-control-label" for="#id">Proposta</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class='participe'>
@@ -88,7 +130,7 @@ avance e volte a ser protagonista nacional. </p>
             </div>
             <div class="form-group">
                 <label for="area">Área</label>
-                <select class="form-control" id="area">
+                <select class="custom-select" id="area">
                   @forelse($eixos as $eixo)
                      <option>{{ $eixo->descricao }}</option>
                   @empty
@@ -139,5 +181,4 @@ avance e volte a ser protagonista nacional. </p>
             <p>Nome, área</p>
         </div>
     </section>
-    
 @endsection
