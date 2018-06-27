@@ -21,8 +21,10 @@ class IndexController extends Controller
     {
         $eixos = Eixo::all();
 
+        $contribuicoes = Contribuicao::whereVisivel(1)->get();
+        
         //return $eixos[0]->propostas[0]->prioridades;
-        return view('index', compact('eixos'));
+        return view('index', compact('eixos', 'contribuicoes'));
     }
 
     /**
@@ -56,6 +58,12 @@ class IndexController extends Controller
 
         return $escolha;
 
+    }
+
+    public function storeParticipe(Request $request)
+    {   
+
+        return Contribuicao::create($request->all());
     }
 
     /**

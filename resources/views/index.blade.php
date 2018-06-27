@@ -94,38 +94,39 @@ avance e volte a ser protagonista nacional. </p>
     </form>
     --}}
 
-    <section class='participe'>
+    <section action="storeParticipe" class='participe'>
         <h2>Participe</h2>
         <p>Este é o seu espaço. Contribua com o Movimento Rumos e envie suas propostas para construir um Rio Grande melhor!</p>
-        <form>
+        <form action="storeParticipe" method="POST" >
+            {{ csrf_field() }}
             <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome">
+                <input type="text" name="nome" class="form-control" id="nome">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email">
             </div>
             <div class="form-group">
                 <label for="telefone">Telefone(DDD)</label>
-                <input type="text" class="form-control" id="telefone">
+                <input type="text" name="telefone" class="form-control" id="telefone">
             </div>
             <div class="form-group">
                 <label for="cidade">Cidade</label>
-                <input type="text" class="form-control" id="cidade">
+                <input type="text" name="cidade" class="form-control" id="cidade">
             </div>
             <div class="form-group">
                 <label for="area">Área</label>
-                <select class="form-control" id="area">
+                <select name="area" class="form-control" id="area">
                   @forelse($eixos as $eixo)
-                     <option value="{{ $eixo->id }}">{{ $eixo->descricao }}</option>
+                     <option value="{{ $eixo->id }}">Eixo {{ $eixo->descricao }}</option>
                   @empty
                   @endforelse
                 </select>
             </div>
             <div class="form-group">
                 <label for="sugestao">Sugestão</label>
-                <textarea class="form-control" id="sugestao" rows="3"></textarea>
+                <textarea name="sugestao" class="form-control" id="sugestao" rows="3"></textarea>
             </div>
             <div class='form-group center'>
                 <button type='submit'>Envie e ajude o RS</button>
