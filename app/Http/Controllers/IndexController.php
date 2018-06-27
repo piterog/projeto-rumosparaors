@@ -22,7 +22,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $eixos = Eixo::orderBy('id', 'desc')->get();
+        return $eixos = Eixo::orderBy('id', 'asc')->get();
 
         $contribuicoes = Contribuicao::whereVisivel(1)->get();
         
