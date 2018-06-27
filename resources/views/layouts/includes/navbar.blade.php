@@ -1,5 +1,4 @@
 <header>
-    <div class='logo'><img src="/img/rumos.png"></div>
     <nav class="menu">
       <label class="menu-sandwich">
         <span></span>

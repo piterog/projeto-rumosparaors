@@ -67,9 +67,12 @@ section h2:after{
 }
 
 section p{
-	font-size: 18px;
+	font-size: 16px;
 	font-family: 'Open Sans', sans-serif;
-	padding: 10px;
+	font-weight: 400;
+	line-height: 19px;
+    padding: 10px;
+    color: #536168;
 }
 section .block{
 	width: 100%;
@@ -100,6 +103,7 @@ section .block h3{
 }
 section .block p{
 	font-size: 14px;
+    line-height: 18px;
 	color: #536168;
 }
 section .block img{
@@ -109,7 +113,7 @@ section .block img{
 }
 @media (max-width: 800px){
 	section .block img{
-		width: 60%;
+		width: 35%;
 		margin: 10px auto;
 	}
 }
@@ -131,6 +135,12 @@ section.sobre{
 }
 section.sobre .slider{
 	height: 200px;
+}
+section.sobre .block{
+	margin: 20px 0;
+}
+section.sobre h3{
+	font-weight: 700;
 }
 
 section.eixos .eixo-itens{
@@ -174,9 +184,13 @@ section.eixos .eixo-itens{
 	margin: 20px;
 }
 .eixo--tipos{
-	column-width: 380px;
+	/*column-width: 380px;*/
     column-gap: 20px;
-    width: 90%;
+    -moz-column-gap:20px;
+    -webkit-column-gap:20px;
+    column-count: 2;
+  	-webkit-column-count: 2;
+  	-moz-column-count: 2;
     /* max-width: 1100px; */
     margin: 0px auto;
 }
@@ -186,8 +200,11 @@ section.eixos .eixo-itens{
 .eixo--tipo{
 	display: inline-block;
  	column-break-inside: avoid;
+ 	break-inside: avoid;
+  	-webkit-column-break-inside: avoid;
+  	-moz-column-break-inside: avoid;
  	background-color: #fff;
- 	padding: 20px;
+ 	padding: 10px 30px;
  	border-radius: 20px;
  	margin: 10px;
 }
@@ -198,18 +215,25 @@ section.eixos .eixo-itens{
 	font-style: normal;
 	text-align: left;
 	margin-left: 25px;
-	padding: 0 0 10px 0;
+	padding: 0;
 }
 .eixo--tipo label{
 	padding-left: 5px;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 400;
+	line-height: 16px;
+	color: #536168;
 }
-
-@media screen and (max-width: 750px) { 
-  .eixo--tipos { column-gap: 0px; }
-  .eixo--tipo { width: 100%; }
+@media (max-width: 700px){
+	.eixo--tipos{
+		column-count: 1;
+  		-webkit-column-count: 1;
+  		-moz-column-count: 1;
+	}
+	.eixo--tipo{
+		margin: 0;
+	}
 }
 .form{
 	margin: 15px 0;
@@ -226,7 +250,8 @@ section.participe form{
 	}
 }
 section.participe form .form-group{
-	margin-bottom: .25rem;
+	margin-bottom: 0rem;
+	margin: 15px 0;
 }
 
 section.propostas{

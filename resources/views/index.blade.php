@@ -15,8 +15,7 @@
 
     <section class='sobre'>
         <h2>O QUE É</h2>
-        <p>Conheça as propostas e marque até 10 em cada eixo que você considera prioritária para que o Rio Grande avance e
-volte a ser protagonista nacional.</p>
+        <p>O Movimento Rumos quer mobilizar a sociedade gaúcha na busca pela recuperação do protagonismo do Estado no cenário nacional. O Rumos avalia o cenário estadual e, de forma plural e colaborativa, identifica como avançar e melhorar a situação do Rio Grande do Sul.  </p>
         <div class='block block-50'>
             <h3>Etapas</h3>
             <p>
