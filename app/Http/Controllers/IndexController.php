@@ -130,9 +130,6 @@ class IndexController extends Controller
         Session::flash('message', "Muito obrigado pela sua sugestão!");
         Session::flash('statusType', "contribuicao");
         return Redirect::back();
-
-
-
     }
 
     /**
