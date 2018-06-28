@@ -117,7 +117,7 @@ avance e volte a ser protagonista nacional. </p>
             @empty
             @endforelse
             <div class="form-group center">
-                <button type="button" onclick='test()' class="">Enviar</button>
+                <button type="button" id="sendForm" onclick='test()' class="">Enviar</button>
             </div>
         </form>
     </section>

@@ -51,6 +51,22 @@ class IndexController extends Controller
     {
         foreach ($request->all() as $key => $v) {
             if(is_int($key) && Proposta::find($key)){
+               foreach($v as $vote){{ 
+                    $escolha[] = Escolha::create([
+                        'prioridade_id' => $vote,
+                        'ip' => \Request::ip(),
+                        'created_at' => 'now()',
+                        'updated_at' => 'now()'
+                    ]);
+                }}
+            }
+        }
+        Session::flash('message', "Agradecemos seu voto!");
+        return Redirect::back();
+  
+        /*
+        foreach ($request->all() as $key => $v) {
+            if(is_int($key) && Proposta::find($key)){
                 DB::beginTransaction();
                 try{
                     $i = 0;
@@ -67,16 +83,17 @@ class IndexController extends Controller
                     DB::commit();
                     Session::flash('message', "Agradecemos seu voto!");
                     return Redirect::back();
-                    
                 } catch (\Exception $e) {
                     DB::rollback();
                     Session::flash('message', "Infelizmente não foi possível validar seu voto, tente novamente em alguns instantes!");
+                    Session::flash('message', $e->getMessage());
                     Session::flash('statusType', "vote");
                     return Redirect::back();
                     Log::error($e->getMessage());
                 }
             }
         }
+        */
     }
 
     public function storeParticipe(Request $request)
