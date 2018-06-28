@@ -1,6 +1,7 @@
 total = {};
 var controle = 0;
 $(document).ready(function(){
+	$('#ok').get(0).play();
 	if(window.location.href.indexOf("#") > -1) {
 		$('html, body').animate({scrollTop:$('.'+ window.location.hash.replace('#','')).offset().top},1000);
 	}
