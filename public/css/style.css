@@ -427,9 +427,11 @@ section.contribuicoes .contribuicao{
 	border-top: none;
 }
 .modal button{
-	    background-color: #ee4859;
     border: 0;
     font-family: 'Open Sans',sans-serif;
     font-size: 16px;
     font-weight: 300;
+}
+.contribuicao-pessoa{
+	text-transform: uppercase;
 }

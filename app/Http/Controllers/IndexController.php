@@ -61,6 +61,13 @@ class IndexController extends Controller
                 }}
             }
         }
+
+        if(empty($escolha)){
+            Session::flash('message', "Você precisa selecionar alguma opção para votar!");
+            Session::flash('status', 204);
+
+            return Redirect::back();
+        }
         Session::flash('message', "Agradecemos seu voto!");
         return Redirect::back();
   

@@ -69,7 +69,7 @@ function test(){
 			 controle++;
 		 }
 	}
-	console.log(controle);
+	
 	if(controle>0){
 		$('body').append('<div class="alert alert-danger" role="alert">Você marcou mais de 10 itens em um mesmo eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		$('#sendForm').attr("disabled","disabled");

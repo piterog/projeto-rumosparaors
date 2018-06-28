@@ -8,7 +8,35 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <p>{{ Session::get('message') }}</p>
+            @if(Session::get('status') == 204)
+                <p class="text-danger text-uppercase font-weight-bold">{{ Session::get('message') }}</p>
+            @else
+            <p class="text-success text-uppercase font-weight-bold">{{ Session::get('message') }}</p>
+            <br><br>
+            <div class='block block-100'>
+                    <form action="storeCadastro" method="POST" >
+                            {{ csrf_field() }}
+                            <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
+                                <label for="nome">Nome</label>
+                                {!! $errors->first('nome', '<span class="error-message">(:message)</span>') !!}
+                                <input type="text" name="nome" class="form-control" id="nome">
+                            </div>
+                            <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
+                                <label for="email">Email</label>
+                                {!! $errors->first('email', '<span class="error-message">(:message)</span>') !!}
+                                <input type="email" name="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group {{ $errors->has('telefone') ? 'has-error' : ''}}">
+                                <label for="telefone">Telefone(DDD)</label>
+                                {!! $errors->first('telefone', '<span class="error-message">(:message)</span>') !!}
+                                <input type="text" name="telefone" class="form-control" id="telefone">
+                            </div>
+                            <div class="text-center">
+                                <button type="button" id="sendForm" onclick="test()" class="btn btn-success">Cadastrar</button>
+                            </div>
+                    </form>
+                </div>
+          @endif
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -37,18 +65,13 @@
     <section class='sobre'>
         <h2>O QUE É</h2>
         <p>O Movimento Rumos quer mobilizar a sociedade gaúcha na busca pela recuperação do protagonismo do Estado no cenário nacional. O Rumos avalia o cenário estadual e, de forma plural e colaborativa, identifica como avançar e melhorar a situação do Rio Grande do Sul.  </p>
-        <div class='block block-50'>
+        <div class='block block-100'>
             <h3>Etapas</h3>
             <p>
-                Entre os maio e junho de 2018, foram desenvolvidos cinco encontros
-                temáticos nas áreas de gestão e finanças, desenvolvimento, educação,
-                segurança pública e saúde. Em cada segmento, especialistas
-                compartilharam suas experiências, os principais dados e indicadores do
-                Estado passaram por análise minuciosa e se construiu uma série de
-                propostas.
+                Nos meses de maio e junho de 2018, foram desenvolvidos cinco encontros temáticos nas áreas de Gestão e Finanças, 
+                Desenvolvimento, Educação, Segurança Pública e Saúde. Em cada segmento, especialistas compartilharam suas experiências. 
+                Os principais dados e indicadores do Estado passaram por análise minuciosa e se construiu uma série de propostas.
             </p>
-        </div>
-        <div class='block block-50'>
             <h3>Objetivo da plataforma</h3>
             <p>
                 Com esta plataforma online queremos identificar as prioridades e
@@ -89,8 +112,7 @@
 
     <section class='propostas'>
         <h2>Propostas e Prioridades</h2>
-        <p>Conheça as propostas e marque até 10 em cada eixo que você considera prioritária para que o Rio Grande
-avance e volte a ser protagonista nacional. </p>
+        <p>Em cada eixo, marque até 10 propostas que você considera prioritárias para que o Rio Grande avance e volte a ser protagonista nacional</p>
         <form name='store' action="store" method="POST">
             {{ csrf_field() }}
             @forelse($eixos as $eixo)
@@ -175,7 +197,7 @@ avance e volte a ser protagonista nacional. </p>
                         @for ($i = 0; $i < $max; $i++)
                             <div class='block block-30 contribuicao'>
                                 <p>{{ $contribuicoes[$i]->sugestao }}</p>
-                                <p>{{ $contribuicoes[$i]->nome}}</p>
+                                <p class="contribuicao-pessoa">{{ $contribuicoes[$i]->nome}}, {{ $contribuicoes[$i]->cidade}}</p>
                             </div>
                         @endfor
                     </div>
@@ -184,7 +206,7 @@ avance e volte a ser protagonista nacional. </p>
                             @for ($i = 3; $i < count($contribuicoes); $i++)
                                 <div class='block block-30 contribuicao'>
                                     <p>{{ $contribuicoes[$i]->sugestao }}</p>
-                                    <p>{{ $contribuicoes[$i]->nome}}</p>
+                                    <p class="contribuicao-pessoa">{{ $contribuicoes[$i]->nome}}, {{ $contribuicoes[$i]->cidade}}</p>
                                 </div>
                             @endfor
                         </div>
