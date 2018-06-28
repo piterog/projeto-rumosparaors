@@ -55,12 +55,19 @@
 
     <section class='video'>
         <video autoplay mute playsinline>
-            <source src="/video/RUMOS.mp4" type="video/mp4" type="video/mp4">
+            <source src="/video/RUMOS.mp4" type="video/mp4">
             <source src="/video/RUMOS.mov" type="video/mp4">
             <source src="/video/RUMOS.webmhd.webm" type="video/webm; codecs=vp8,vorbis">
             <source src="/video/RUMOS.oggtheora.ogv" type="video/ogg; codecs=theora,vorbis">
             <source src="/video/RUMOS.iphone5.mp4">
             Browser não suporta mov
+        </video>
+    </section>
+
+    <section class='videoLongo'>
+        <video mute playsinline controls>
+            <source src="/video/RUMOS2.mp4" type="video/mp4">
+            Browser não suporta mp4
         </video>
     </section>
 
@@ -90,6 +97,7 @@
             <img src="/img/apoio/solon.png">
             <img src="/img/apoio/teotonia.png">
         </div>
+
     </section>
 
     <section class='eixos'>

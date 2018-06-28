@@ -435,3 +435,8 @@ section.contribuicoes .contribuicao{
 .contribuicao-pessoa{
 	text-transform: uppercase;
 }
+
+.videoLongo{
+	/*height: 50vh;*/
+	width: 100%;
+}
