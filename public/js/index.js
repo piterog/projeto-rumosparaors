@@ -12,10 +12,10 @@ $(document).ready(function(){
 		}
 
 		if(total[$eixo]==10){
-			$('body').append('<div class="alert alert-success" role="alert">Muito Bem, você marcou 10 itens!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+			$('body').append('<div class="alert alert-success" role="alert">Muito Bem, você marcou 10 itens para este eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}else if(total[$eixo] > 10){
 			$(".alert").alert('close')
-			$('body').append('<div class="alert alert-danger" role="alert">Você já marcou 10 itens!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+			$('body').append('<div class="alert alert-danger" role="alert">Você já marcou 10 itens para este eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}
 	});
 

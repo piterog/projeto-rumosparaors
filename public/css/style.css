@@ -398,3 +398,19 @@ section.contribuicoes .contribuicao{
     opacity: 1;
     background: #ee4859 !important;
 }
+.modal p{
+	font-family: 'Open Sans',sans-serif;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 300;
+}
+.modal .modal-footer{
+	border-top: none;
+}
+.modal button{
+	    background-color: #ee4859;
+    border: 0;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
