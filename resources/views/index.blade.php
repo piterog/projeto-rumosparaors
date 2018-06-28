@@ -53,8 +53,8 @@
     </script>
 @endif
 
-    <section id="video_home" class='video'>
-        <video id="ok" autoplay mute  playsinline>
+    <section class='video'>
+        <video autoplay mute playsinline>
             <source src="/video/RUMOS.mp4" type="video/mp4" type="video/mp4">
             <source src="/video/RUMOS.mov" type="video/mp4">
             <source src="/video/RUMOS.webmhd.webm" type="video/webm; codecs=vp8,vorbis">
