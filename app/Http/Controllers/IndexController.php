@@ -52,7 +52,6 @@ class IndexController extends Controller
         foreach ($request->all() as $key => $v) {
             if(is_int($key) && Proposta::find($key)){
                 DB::beginTransaction();
-
                 try{
                     $i = 0;
                     foreach($v as $vote){ 

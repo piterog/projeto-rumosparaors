@@ -10,4 +10,9 @@ class Proposta extends Model
     {
         return $this->hasMany('App\Prioridade');
     }
+    
+    public function eixo()
+    {
+        return $this->belongsTo('App\Eixo');
+    }
 }
