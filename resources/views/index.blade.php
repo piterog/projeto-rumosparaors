@@ -161,6 +161,38 @@ avance e volte a ser protagonista nacional. </p>
             </div>
         </form>
     </section>
+    @if(count($contribuicoes) > 0)
+        <section class='contribuicoes'>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                    @php
+                        $max = (count($contribuicoes) < 3) ? count($contribuicoes) : 3;
+                    @endphp
+                        @for ($i = 0; $i < $max; $i++)
+                            <div class='block block-30 contribuicao'>
+                                <p>{{ $contribuicoes[$i]->sugestao }}</p>
+                                <p>{{ $contribuicoes[$i]->nome}}</p>
+                            </div>
+                        @endfor
+                    </div>
+                    @if(count($contribuicoes) >3)
+                        <div class="swiper-slide">
+                            @for ($i = 3; $i < count($contribuicoes); $i++)
+                                <div class='block block-30 contribuicao'>
+                                    <p>{{ $contribuicoes[$i]->sugestao }}</p>
+                                    <p>{{ $contribuicoes[$i]->nome}}</p>
+                                </div>
+                            @endfor
+                        </div>
+                    @endif
+                </div>
+                <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+    @endif
 
-    
 @endsection
+
+                            
