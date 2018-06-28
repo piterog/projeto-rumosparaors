@@ -181,7 +181,11 @@ section.eixos .eixo-itens{
 	display: inline-block;
   column-break-inside: avoid;
 }
+.eixo-itens .item:nth-child(2){
+	height: 100%;
+}
 .eixo-itens .item h3{
+	text-transform: uppercase;
 	background-color: #839aa6;
 	border-radius: 5px;
 	padding: 10px;

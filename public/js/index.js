@@ -1,6 +1,8 @@
 total = 0;
 $(document).ready(function(){
-
+	if(window.location.href.indexOf("#") > -1) {
+		$('html, body').animate({scrollTop:$('.'+ window.location.hash.replace('#','')).offset().top},1000);
+	}
 	$('.custom-control-label').on('click', ()=>{
 		if($('#' + $(this).attr('for')).is(":checked")){
 			total=total-1;
