@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 class IndexController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class IndexController extends Controller
     {
         $eixos = Eixo::orderBy('id', 'asc')->get();
 
-        $contribuicoes = Contribuicao::whereVisivel(1)->get();
+        $contribuicoes = Contribuicao::whereVisivel(1)->take(6)->get();
         
         //return $eixos[0]->propostas[0]->prioridades;
         return view('index', compact('eixos', 'contribuicoes'));
@@ -78,12 +79,13 @@ class IndexController extends Controller
                     }
                     Escolha::insert($escolha);
                     DB::commit();
-                    Session::flash('message', "Muito obrigado pela sua contribuição!");
+                    Session::flash('message', "Agradecemos seu voto!");
                     return Redirect::back();
                     
                 } catch (\Exception $e) {
                     DB::rollback();
                     Session::flash('message', "Infelizmente não foi possível validar seu voto, tente novamente em alguns instantes!");
+                    Session::flash('statusType', "vote");
                     return Redirect::back();
                     Log::error($e->getMessage());
                 }
@@ -93,27 +95,41 @@ class IndexController extends Controller
 
     public function storeParticipe(Request $request)
     {   
-        /*
-        $this->validate($request, [
+        $messages = [
+                'nome.required' => 'É necessário o seu nome',
+                'nome.max'  => 'Podemos aceitar no máximo 255 caracteres no seu nome',
+                'email.required' => 'É necessário o seu email',
+                'telefone.required' => 'É necessário o seu telefone',
+                'cidade.required' => 'É necessário a sua cidade',
+            ];
+
+        $validator = Validator::make($request->all(), [
             'nome' => 'required|max:255',
             'email' => 'required',
             'telefone' => 'required',
             'cidade' => 'required',
-            'sugestao' => 'required',
-        ]);
-        */
+        ], $messages);
 
-        //Contribuicao::create($request->all());
+        if ($validator->fails()) {
+            return redirect('/#sugestoes')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         Contribuicao::create([
             'nome' => $request->nome ,
             'email' => $request->email ,
             'telefone' => $request->telefone ,
             'cidade' => $request->cidade ,
             'area' => $request->area ,
-            'sugestao' => $request->sugestao ,
+            'sugestao' => ($request->sugestao == "") ? ' ': $request->sugestao ,
             'visivel' => 0,
             'ordem' => '0',
         ]);
+
+        Session::flash('message', "Muito obrigado pela sua sugestão!");
+        Session::flash('statusType', "contribuicao");
+        return Redirect::back();
     }
 
     /**

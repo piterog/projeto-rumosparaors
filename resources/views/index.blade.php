@@ -1,6 +1,8 @@
 @extends('layouts.base')
 
 @section('body')
+
+
 @if (Session::has('message'))
    <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
@@ -72,7 +74,7 @@ avance e volte a ser protagonista nacional. </p>
             {{ csrf_field() }}
             @forelse($eixos as $eixo)
             <div class='eixo--item'>
-                <h3>Eixo {{$eixo->descricao}}</h3>
+                <h3>EIXO {{ strtoupper($eixo->descricao)}}</h3>
                 <div class='eixo--tipos'>
                 @forelse($eixo->propostas as $proposta)
                     <div class='eixo--tipo'>
@@ -103,20 +105,24 @@ avance e volte a ser protagonista nacional. </p>
         <p>Este é o seu espaço. Contribua com o Movimento Rumos e envie suas propostas para construir um Rio Grande melhor!</p>
         <form action="storeParticipe" method="POST" >
             {{ csrf_field() }}
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
                 <label for="nome">Nome</label>
+                {!! $errors->first('nome', '<span class="error-message">(:message)</span>') !!}
                 <input type="text" name="nome" class="form-control" id="nome">
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
                 <label for="email">Email</label>
+                {!! $errors->first('email', '<span class="error-message">(:message)</span>') !!}
                 <input type="email" name="email" class="form-control" id="email">
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('telefone') ? 'has-error' : ''}}">
                 <label for="telefone">Telefone(DDD)</label>
+                {!! $errors->first('telefone', '<span class="error-message">(:message)</span>') !!}
                 <input type="text" name="telefone" class="form-control" id="telefone">
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('cidade') ? 'has-error' : ''}}">
                 <label for="cidade">Cidade</label>
+                {!! $errors->first('cidade', '<span class="error-message">(:message)</span>') !!}
                 <input type="text" name="cidade" class="form-control" id="cidade">
             </div>
             <div class="form-group">
