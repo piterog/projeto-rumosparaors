@@ -54,7 +54,7 @@ class IndexController extends Controller
                foreach($v as $vote){{ 
                     $escolha[] = Escolha::create([
                         'prioridade_id' => "$vote",
-                        'ip' => ' ',
+                        'ip' => "-",
                         'created_at' => 'now()',
                         'updated_at' => 'now()'
                     ]);
