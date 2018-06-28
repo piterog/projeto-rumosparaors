@@ -36,7 +36,9 @@
                 colher mais alternativas para o futuro do Rio Grande do Sul.
             </p>
         </div>
-        <div class='slider'></div>
+        <div class='slider'>
+            <a data-flickr-embed="true"  href="https://www.flickr.com/photos/151944326@N03/albums/72157693306974412" title="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"><img src="https://farm1.staticflickr.com/951/40079955470_8cb8bc9d65_z.jpg" width="580" height="300" alt="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+        </div>
         <div class='block'>
             <h3>Quem apoia o Rumos</h3>
             <img src="/img/apoio/astrogildo.png">
