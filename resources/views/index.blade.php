@@ -4,7 +4,23 @@
 
 
 @if (Session::has('message'))
-   <div class="alert alert-info">{{ Session::get('message') }}</div>
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>{{ Session::get('message') }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        window.onload = function() {
+            $('.modal').modal();
+        };
+    </script>
 @endif
 
     <section class='video'>
@@ -85,7 +101,7 @@ avance e volte a ser protagonista nacional. </p>
                         <div class='form'>
                             <div class="custom-control custom-checkbox">
                               <input type="checkbox" name='{{ $proposta->id }}[]' class="custom-control-input" id="{{$prioridade->id}}" value='{{$prioridade->id}}'>
-                              <label class="custom-control-label" for="{{$prioridade->id}}">{{ $prioridade->descricao }}</label>
+                              <label class="custom-control-label" data-target="{{str_slug($eixo->descricao)}}" for="{{$prioridade->id}}">{{ $prioridade->descricao }}</label>
                             </div>
                         </div>
                         @empty

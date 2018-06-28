@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i');
 
 body{
 	font-family: 'Open Sans', sans-serif;
@@ -221,6 +221,7 @@ section.eixos .eixo-itens{
 	font-style: italic;
 	text-align: center;
 	margin: 20px;
+	text-transform: uppercase;
 }
 .eixo--tipos{
 	/*column-width: 380px;*/
@@ -362,8 +363,9 @@ section.contribuicoes .contribuicao{
 }
 .alert{
 	position: fixed;
-    bottom: 0;
-    right: 10px;
+    top: 60px;
+    right: 20px;
+    z-index: 999999;
 }
 
 .error-message{
