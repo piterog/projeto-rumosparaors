@@ -53,8 +53,8 @@ class IndexController extends Controller
             if(is_int($key) && Proposta::find($key)){
                foreach($v as $vote){{ 
                     $escolha[] = Escolha::create([
-                        'prioridade_id' => $vote,
-                        'ip' => \Request::ip(),
+                        'prioridade_id' => "$vote",
+                        'ip' => ' ',
                         'created_at' => 'now()',
                         'updated_at' => 'now()'
                     ]);
