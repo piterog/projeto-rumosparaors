@@ -13,7 +13,7 @@
             @else
             <p class="text-success text-uppercase font-weight-bold">{{ Session::get('message') }}</p>
             <br><br>
-            {{-- 
+            {{--
             <div class='block block-100'>
                     <form action="storeCadastro" method="POST" >
                             {{ csrf_field() }}
@@ -64,12 +64,12 @@
         </video>
     </section>
 
-    <section class='videoLongo'>
+    <!-- <section class='videoLongo'>
         <video mute playsinline controls>
             <source src="/video/RUMOS2.mp4" type="video/mp4">
             Browser não suporta mp4
         </video>
-    </section>
+    </section> -->
 
     <section class='sobre'>
         <h2>O QUE É</h2>
@@ -77,8 +77,8 @@
         <div class='block block-100'>
             <h3>Etapas</h3>
             <p>
-                Nos meses de maio e junho de 2018, foram desenvolvidos cinco encontros temáticos nas áreas de Gestão e Finanças, 
-                Desenvolvimento, Educação, Segurança Pública e Saúde. Em cada segmento, especialistas compartilharam suas experiências. 
+                Nos meses de maio e junho de 2018, foram desenvolvidos cinco encontros temáticos nas áreas de Gestão e Finanças,
+                Desenvolvimento, Educação, Segurança Pública e Saúde. Em cada segmento, especialistas compartilharam suas experiências.
                 Os principais dados e indicadores do Estado passaram por análise minuciosa e se construiu uma série de propostas.
             </p>
             <h3>Objetivo da plataforma</h3>
