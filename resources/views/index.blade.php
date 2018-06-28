@@ -146,31 +146,5 @@ avance e volte a ser protagonista nacional. </p>
         </form>
     </section>
 
-    @forelse($contribuicoes)
-        <section class='contribuicoes'>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        @for ($i = count($contribuicoes); $i > 3; $i--)
-                            <div class='block block-30 contribuicao'>
-                                <p>{{ $contribuicoes[$i-1]->sugestao }}</p>
-                                <p>{{ $contribuicoes[$i-1]->nome}}</p>
-                            </div>
-                        @endfor
-                    </div>
-                    <div class='swiper-slide'>
-                        @for ($i = count($contribuicoes)-3; $i > 0; $i--)
-                            <div class='block block-30 contribuicao'>
-                                <p>{{ $contribuicoes[$i-1]->sugestao }}</p>
-                                <p>{{ $contribuicoes[$i-1]->nome}}</p>
-                            </div>
-                        @endfor
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-    @empty
-    @endforelse
+    
 @endsection
