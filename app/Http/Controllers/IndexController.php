@@ -79,12 +79,13 @@ class IndexController extends Controller
                     }
                     Escolha::insert($escolha);
                     DB::commit();
-                    Session::flash('message', "Muito obrigado pela sua contribuição!");
+                    Session::flash('message', "Agradecemos seu voto!");
                     return Redirect::back();
                     
                 } catch (\Exception $e) {
                     DB::rollback();
                     Session::flash('message', "Infelizmente não foi possível validar seu voto, tente novamente em alguns instantes!");
+                    Session::flash('statusType', "vote");
                     return Redirect::back();
                     Log::error($e->getMessage());
                 }
@@ -95,11 +96,11 @@ class IndexController extends Controller
     public function storeParticipe(Request $request)
     {   
         $messages = [
-                'nome.required' => 'É necessário preencher o seu nome',
+                'nome.required' => 'É necessário o seu nome',
                 'nome.max'  => 'Podemos aceitar no máximo 255 caracteres no seu nome',
-                'email.required' => 'É necessário  preencher o seu email',
-                'telefone.required' => 'É necessário preencher o seu telefone',
-                'cidade.required' => 'É necessário preencher a sua cidade',
+                'email.required' => 'É necessário o seu email',
+                'telefone.required' => 'É necessário o seu telefone',
+                'cidade.required' => 'É necessário a sua cidade',
             ];
 
         $validator = Validator::make($request->all(), [
@@ -108,8 +109,6 @@ class IndexController extends Controller
             'telefone' => 'required',
             'cidade' => 'required',
         ], $messages);
-
-        //dd($validator->fails());
 
         if ($validator->fails()) {
             return redirect('/#sugestoes')
@@ -123,11 +122,14 @@ class IndexController extends Controller
             'telefone' => $request->telefone ,
             'cidade' => $request->cidade ,
             'area' => $request->area ,
-            'sugestao' => $request->sugestao ,
+            'sugestao' => ($request->sugestao == "") ? ' ': $request->sugestao ,
             'visivel' => 0,
             'ordem' => '0',
         ]);
 
+        Session::flash('message', "Muito obrigado pela sua sugestão!");
+        Session::flash('statusType', "contribuicao");
+        return Redirect::back();
 
 
 

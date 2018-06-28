@@ -15,12 +15,37 @@ $(document).ready(function(){
 		}
 	});
 
-	$('a.nav-item').on('click', () =>{
-    	console.log($(this).attr('href').replace('#',''));
-    	$('html, body').animate({scrollTop:$('.'+ $(this).attr('href').replace('#','')).offset().top},1000);
+	$('a.nav-item').on('click', function(){
+    	$('html, body').animate({scrollTop:$('.' + $(this).attr('href').replace('#','')).offset().top},1000);
   	});
 
   	$('.menu-sandwich').on("click", () => {
         $('.menu-header').toggleClass('menu-header--open');
     });
+    function backToTop(){
+  		var scrollTrigger = 300; // px
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > scrollTrigger) {
+            $('#back-to-top').addClass('show');
+        } else {
+            $('#back-to-top').removeClass('show');
+        }
+    };
+    $(window).on('scroll', function () {
+        backToTop();
+    });
+    $('#back-to-top').on('click', function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, 700);
+    });
+    mySwiper = new Swiper ('.swiper-container', {
+			loop: false,
+			pagination : {
+			el: '.swiper-pagination',
+			type: 'bullets',
+			clickable: true,
+		},		    
+	})
 })

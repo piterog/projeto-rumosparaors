@@ -22,11 +22,6 @@ header .logo img{
 header .menu{
 	float: right;
 }
-@media (max-width: 800px){
-	header .menu{
-		margin-top: -26px;
-	}
-}
 /*==============
 sandwich
 =================*/

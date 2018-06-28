@@ -1,6 +1,8 @@
 @extends('layouts.base')
 
 @section('body')
+
+
 @if (Session::has('message'))
    <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
@@ -110,14 +112,17 @@ avance e volte a ser protagonista nacional. </p>
             </div>
             <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
                 <label for="email">Email</label>
+                {!! $errors->first('email', '<span class="error-message">(:message)</span>') !!}
                 <input type="email" name="email" class="form-control" id="email">
             </div>
             <div class="form-group {{ $errors->has('telefone') ? 'has-error' : ''}}">
                 <label for="telefone">Telefone(DDD)</label>
+                {!! $errors->first('telefone', '<span class="error-message">(:message)</span>') !!}
                 <input type="text" name="telefone" class="form-control" id="telefone">
             </div>
             <div class="form-group {{ $errors->has('cidade') ? 'has-error' : ''}}">
                 <label for="cidade">Cidade</label>
+                {!! $errors->first('cidade', '<span class="error-message">(:message)</span>') !!}
                 <input type="text" name="cidade" class="form-control" id="cidade">
             </div>
             <div class="form-group">
@@ -140,37 +145,83 @@ avance e volte a ser protagonista nacional. </p>
     </section>
 
     <section class='contribuicoes'>
-        <div class='block block-30 contribuicao'>
-            <p>
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Etiam
-                pretium at orci vitae ullamcorper.
-                Nunc maximus vitae magna sit amet
-                vehicula. Pellentesque facilisis sagittis
-                lorem, tincidunt bibendum leo
-                ullamcorper vitae. Nunc eu nisi nunc. 
-            </p>
-            <p>Nome, área</p>
-        </div>
-        <div class='block block-30 contribuicao'>
-            <p>
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Etiam
-                pretium at orci vitae ullamcorper.
-            </p>
-            <p>Nome, área</p>
-        </div>
-        <div class='block block-30 contribuicao'>
-            <p>
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Etiam
-                pretium at orci vitae ullamcorper.
-                Nunc maximus vitae magna sit amet
-                vehicula. Pellentesque facilisis sagittis
-                lorem, tincidunt bibendum leo
-                ullamcorper vitae. Nunc eu nisi nunc. 
-            </p>
-            <p>Nome, área</p>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                        <div class='block block-30 contribuicao'>
+                            <p>
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Etiam
+                                pretium at orci vitae ullamcorper.
+                                Nunc maximus vitae magna sit amet
+                                vehicula. Pellentesque facilisis sagittis
+                                lorem, tincidunt bibendum leo
+                                ullamcorper vitae. Nunc eu nisi nunc. 
+                            </p>
+                            <p>Nome, área</p>
+                        </div>
+                        <div class='block block-30 contribuicao'>
+                            <p>
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Etiam
+                                pretium at orci vitae ullamcorper.
+                            </p>
+                            <p>Nome, área</p>
+                        </div>
+                        <div class='block block-30 contribuicao'>
+                            <p>
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Etiam
+                                pretium at orci vitae ullamcorper.
+                                Nunc maximus vitae magna sit amet
+                                vehicula. Pellentesque facilisis sagittis
+                                lorem, tincidunt bibendum leo
+                                ullamcorper vitae. Nunc eu nisi nunc. 
+                            </p>
+                            <p>Nome, área</p>
+                        </div>
+                    </div>
+                    <div class='swiper-slide'>
+                        <div class='block block-30 contribuicao'>
+                            <p>
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Etiam
+                                pretium at orci vitae ullamcorper.
+                                Nunc maximus vitae magna sit amet
+                                vehicula. Pellentesque facilisis sagittis
+                                lorem, tincidunt bibendum leo
+                                ullamcorper vitae. Nunc eu nisi nunc. 
+                            </p>
+                            <p>Nome, área</p>
+                        </div>
+                        <div class='block block-30 contribuicao'>
+                            <p>
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Etiam
+                                pretium at orci vitae ullamcorper.
+                                Nunc maximus vitae magna sit amet
+                                vehicula. Pellentesque facilisis sagittis
+                                lorem, tincidunt bibendum leo
+                                ullamcorper vitae. Nunc eu nisi nunc. 
+                            </p>
+                            <p>Nome, área</p>
+                        </div>
+                        <div class='block block-30 contribuicao'>
+                            <p>
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Etiam
+                                pretium at orci vitae ullamcorper.
+                                Nunc maximus vitae magna sit amet
+                                vehicula. Pellentesque facilisis sagittis
+                                lorem, tincidunt bibendum leo
+                                ullamcorper vitae. Nunc eu nisi nunc. 
+                            </p>
+                            <p>Nome, área</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
     </section>
 @endsection
