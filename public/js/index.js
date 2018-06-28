@@ -50,7 +50,14 @@ $(document).ready(function(){
 			type: 'bullets',
 			clickable: true,
 		},
-	})
+	});
+
+	var viewportWidth = $(window).width();
+	if (viewportWidth > 600) {
+		$('.slider').append('<a data-flickr-embed="true"  href="https://www.flickr.com/photos/151944326@N03/albums/72157693306974412" title="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"><img src="https://farm1.staticflickr.com/951/40079955470_8cb8bc9d65_z.jpg" width="580" height="300" alt="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>');
+	} else {
+		$('.slider').append('<a data-flickr-embed="true"  href="https://www.flickr.com/photos/151944326@N03/albums/72157693306974412" title="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"><img src="https://farm1.staticflickr.com/951/40079955470_8cb8bc9d65_z.jpg" width="320" height="240" alt="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>');
+	}
 })
 function test(){
 	var controle = 0;

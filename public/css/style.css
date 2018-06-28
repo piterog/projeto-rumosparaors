@@ -181,7 +181,7 @@ section.sobre .slider iframe{
 }
 @media (max-width: 500px){
 	section.sobre .slider iframe{
-		display: none;
+		/* display: none; */
 		margin: 0 auto !important;
 	    width: 320px !important;
 	    height: 214px !important;
