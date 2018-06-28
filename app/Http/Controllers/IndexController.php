@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 class IndexController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class IndexController extends Controller
     {
         $eixos = Eixo::orderBy('id', 'asc')->get();
 
-        $contribuicoes = Contribuicao::whereVisivel(1)->get();
+        $contribuicoes = Contribuicao::whereVisivel(1)->take(6)->get();
         
         //return $eixos[0]->propostas[0]->prioridades;
         return view('index', compact('eixos', 'contribuicoes'));
@@ -93,17 +94,29 @@ class IndexController extends Controller
 
     public function storeParticipe(Request $request)
     {   
-        /*
-        $this->validate($request, [
+        $messages = [
+                'nome.required' => 'É necessário preencher o seu nome',
+                'nome.max'  => 'Podemos aceitar no máximo 255 caracteres no seu nome',
+                'email.required' => 'É necessário  preencher o seu email',
+                'telefone.required' => 'É necessário preencher o seu telefone',
+                'cidade.required' => 'É necessário preencher a sua cidade',
+            ];
+
+        $validator = Validator::make($request->all(), [
             'nome' => 'required|max:255',
             'email' => 'required',
             'telefone' => 'required',
             'cidade' => 'required',
-            'sugestao' => 'required',
-        ]);
-        */
+        ], $messages);
 
-        //Contribuicao::create($request->all());
+        //dd($validator->fails());
+
+        if ($validator->fails()) {
+            return redirect('/#sugestoes')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         Contribuicao::create([
             'nome' => $request->nome ,
             'email' => $request->email ,
@@ -114,6 +127,10 @@ class IndexController extends Controller
             'visivel' => 0,
             'ordem' => '0',
         ]);
+
+
+
+
     }
 
     /**

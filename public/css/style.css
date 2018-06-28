@@ -297,3 +297,7 @@ section.contribuicoes .contribuicao{
     bottom: 0;
     right: 10px;
 }
+
+.error-message{
+	color: red;
+}
