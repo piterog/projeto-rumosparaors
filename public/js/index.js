@@ -1,18 +1,20 @@
-total = 0;
+total = {};
 $(document).ready(function(){
 	if(window.location.href.indexOf("#") > -1) {
 		$('html, body').animate({scrollTop:$('.'+ window.location.hash.replace('#','')).offset().top},1000);
 	}
-	$('.custom-control-label').on('click', ()=>{
+	$('.custom-control-label').on('click', function(){
+		$eixo = $(this).attr('data-target');
 		if($('#' + $(this).attr('for')).is(":checked")){
-			total=total-1;
+			total[$eixo] = (total[$eixo] == undefined) ? 0 : total[$eixo]-1;
 		}else{
-			total=total+1;
+			total[$eixo] = (total[$eixo] == undefined) ? 1 : total[$eixo]+1;
 		}
 
-		if(total==10){
+		if(total[$eixo]==10){
 			$('body').append('<div class="alert alert-success" role="alert">Muito Bem, você marcou 10 itens!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		}else if(total > 10){
+		}else if(total[$eixo] > 10){
+			$(".alert").alert('close')
 			$('body').append('<div class="alert alert-danger" role="alert">Você já marcou 10 itens!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}
 	});

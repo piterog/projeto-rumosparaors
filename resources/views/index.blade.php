@@ -4,7 +4,23 @@
 
 
 @if (Session::has('message'))
-   <div class="alert alert-info">{{ Session::get('message') }}</div>
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>{{ Session::get('message') }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        window.onload = function() {
+            $('.modal').modal();
+        };
+    </script>
 @endif
 
     <section class='video'>
@@ -85,7 +101,7 @@ avance e volte a ser protagonista nacional. </p>
                         <div class='form'>
                             <div class="custom-control custom-checkbox">
                               <input type="checkbox" name='{{ $proposta->id }}[]' class="custom-control-input" id="{{$prioridade->id}}" value='{{$prioridade->id}}'>
-                              <label class="custom-control-label" for="{{$prioridade->id}}">{{ $prioridade->descricao }}</label>
+                              <label class="custom-control-label" data-target="{{str_slug($eixo->descricao)}}" for="{{$prioridade->id}}">{{ $prioridade->descricao }}</label>
                             </div>
                         </div>
                         @empty
@@ -131,7 +147,7 @@ avance e volte a ser protagonista nacional. </p>
                 <label for="area">Área</label>
                 <select name="area" class="custom-select" id="area">
                   @forelse($eixos as $eixo)
-                     <option value="{{ $eixo->id }}">Eixo {{ $eixo->descricao }}</option>
+                     <option value="{{ $eixo->id }}">EIXO {{ $eixo->descricao }}</option>
                   @empty
                   @endforelse
                 </select>
@@ -146,84 +162,31 @@ avance e volte a ser protagonista nacional. </p>
         </form>
     </section>
 
-    <section class='contribuicoes'>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                        <div class='block block-30 contribuicao'>
-                            <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Etiam
-                                pretium at orci vitae ullamcorper.
-                                Nunc maximus vitae magna sit amet
-                                vehicula. Pellentesque facilisis sagittis
-                                lorem, tincidunt bibendum leo
-                                ullamcorper vitae. Nunc eu nisi nunc. 
-                            </p>
-                            <p>Nome, área</p>
-                        </div>
-                        <div class='block block-30 contribuicao'>
-                            <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Etiam
-                                pretium at orci vitae ullamcorper.
-                            </p>
-                            <p>Nome, área</p>
-                        </div>
-                        <div class='block block-30 contribuicao'>
-                            <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Etiam
-                                pretium at orci vitae ullamcorper.
-                                Nunc maximus vitae magna sit amet
-                                vehicula. Pellentesque facilisis sagittis
-                                lorem, tincidunt bibendum leo
-                                ullamcorper vitae. Nunc eu nisi nunc. 
-                            </p>
-                            <p>Nome, área</p>
-                        </div>
+    @forelse($contribuicoes)
+        <section class='contribuicoes'>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        @for ($i = count($contribuicoes); $i > 3; $i--)
+                            <div class='block block-30 contribuicao'>
+                                <p>{{ $contribuicoes[$i-1]->sugestao }}</p>
+                                <p>{{ $contribuicoes[$i-1]->nome}}</p>
+                            </div>
+                        @endfor
                     </div>
                     <div class='swiper-slide'>
-                        <div class='block block-30 contribuicao'>
-                            <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Etiam
-                                pretium at orci vitae ullamcorper.
-                                Nunc maximus vitae magna sit amet
-                                vehicula. Pellentesque facilisis sagittis
-                                lorem, tincidunt bibendum leo
-                                ullamcorper vitae. Nunc eu nisi nunc. 
-                            </p>
-                            <p>Nome, área</p>
-                        </div>
-                        <div class='block block-30 contribuicao'>
-                            <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Etiam
-                                pretium at orci vitae ullamcorper.
-                                Nunc maximus vitae magna sit amet
-                                vehicula. Pellentesque facilisis sagittis
-                                lorem, tincidunt bibendum leo
-                                ullamcorper vitae. Nunc eu nisi nunc. 
-                            </p>
-                            <p>Nome, área</p>
-                        </div>
-                        <div class='block block-30 contribuicao'>
-                            <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Etiam
-                                pretium at orci vitae ullamcorper.
-                                Nunc maximus vitae magna sit amet
-                                vehicula. Pellentesque facilisis sagittis
-                                lorem, tincidunt bibendum leo
-                                ullamcorper vitae. Nunc eu nisi nunc. 
-                            </p>
-                            <p>Nome, área</p>
-                        </div>
+                        @for ($i = count($contribuicoes)-3; $i > 0; $i--)
+                            <div class='block block-30 contribuicao'>
+                                <p>{{ $contribuicoes[$i-1]->sugestao }}</p>
+                                <p>{{ $contribuicoes[$i-1]->nome}}</p>
+                            </div>
+                        @endfor
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @empty
+    @endforelse
 @endsection
