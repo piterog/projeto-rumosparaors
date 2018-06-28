@@ -191,6 +191,22 @@ section.eixos .eixo-itens{
 	max-width: 1100px;
 	margin: 0 auto;
 }
+@media (max-width: 800px){
+	section.eixos .eixo-itens{
+		column-width: 50%;
+		column-count: 2;
+	  	-webkit-column-count: 2;
+	  	-moz-column-count: 2;
+	}
+}
+@media (max-width: 420px){
+	section.eixos .eixo-itens{
+		column-width: 100%;
+		column-count: 1;
+	  	-webkit-column-count: 1;
+	  	-moz-column-count: 1;
+	}
+}
 .eixo-itens .item{
 	display: block;
   	column-break-inside: avoid;
@@ -215,7 +231,7 @@ section.eixos .eixo-itens{
 	color: #839aa6;
 	font-weight: 400;
 	width: 100%;
-	display: block;	
+	display: block;
 	margin: 7px 0;
 }
 .eixo--item{
