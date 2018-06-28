@@ -91,7 +91,7 @@
         <h2>Propostas e Prioridades</h2>
         <p>Conheça as propostas e marque até 10 em cada eixo que você considera prioritária para que o Rio Grande
 avance e volte a ser protagonista nacional. </p>
-        <form action="store" method="POST">
+        <form name='store' action="store" method="POST">
             {{ csrf_field() }}
             @forelse($eixos as $eixo)
             <div class='eixo--item'>
@@ -117,7 +117,7 @@ avance e volte a ser protagonista nacional. </p>
             @empty
             @endforelse
             <div class="form-group center">
-                <button type="submit" class="">Enviar</button>
+                <button type="button" onclick='test()' class="">Enviar</button>
             </div>
         </form>
     </section>

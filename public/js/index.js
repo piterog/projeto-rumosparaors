@@ -14,11 +14,10 @@ $(document).ready(function(){
 		if(total[$eixo]==10){
 			$('body').append('<div class="alert alert-success" role="alert">Muito Bem, você marcou 10 itens para este eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}else if(total[$eixo] > 10){
-			$(".alert").alert('close')
+			$(".alert").alert('close');
 			$('body').append('<div class="alert alert-danger" role="alert">Você já marcou 10 itens para este eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		}
 	});
-
 	$('a.nav-item').on('click', function(){
     	$('html, body').animate({scrollTop:$('.' + $(this).attr('href').replace('#','')).offset().top},1000);
   	});
@@ -50,6 +49,20 @@ $(document).ready(function(){
 			el: '.swiper-pagination',
 			type: 'bullets',
 			clickable: true,
-		},		    
+		},
 	})
 })
+function test(){
+	var controle = 0;
+	for (var item in total) {
+	    if(total[item]>10){
+			 controle++;
+		 }
+	}
+	console.log(controle);
+	if(controle>0){
+		$('body').append('<div class="alert alert-danger" role="alert">Você marcou mais de 10 itens para um eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+	}else{
+		//$('form[name="store"]').submit();
+	}
+}
