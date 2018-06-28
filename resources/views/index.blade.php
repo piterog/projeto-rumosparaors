@@ -25,10 +25,10 @@
 
     <section class='video'>
         <video autoplay muted>
-            <source src="/video/RUMOS.mp4" type="video/mp4">
+            <source src="/video/RUMOS.mp4" type="video/mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
             <source src="/video/RUMOS.mov" type="video/mp4">
-            <source src="/video/RUMOS.webmhd.webm">
-            <source src="/video/RUMOS.oggtheora.ogv">
+            <source src="/video/RUMOS.webmhd.webm" type="video/webm; codecs=vp8,vorbis">
+            <source src="/video/RUMOS.oggtheora.ogv" type="video/ogg; codecs=theora,vorbis">
             <source src="/video/RUMOS.iphone5.mp4">
             Browser não suporta mov
         </video>
