@@ -168,8 +168,9 @@ section.sobre .slider{
 section.sobre .slider iframe{
 	margin: 0 auto !important;
 }
-@media (max-width: 500){
+@media (max-width: 500px){
 	section.sobre .slider iframe{
+		display: none;
 		margin: 0 auto !important;
 	    width: 320px !important;
 	    height: 214px !important;
