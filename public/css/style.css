@@ -168,6 +168,13 @@ section.sobre .slider{
 section.sobre .slider iframe{
 	margin: 0 auto !important;
 }
+@media (max-width: 500){
+	section.sobre .slider iframe{
+		margin: 0 auto !important;
+	    width: 320px !important;
+	    height: 214px !important;
+	}
+}
 section.sobre .block{
 	margin: 20px 0;
 }
@@ -181,38 +188,43 @@ section.eixos .eixo-itens{
   	-webkit-column-count: 3;
   	-moz-column-count: 3;
 	column-gap: 15px;
-  width: 90%;
 	max-width: 1100px;
 	margin: 0 auto;
+	max-height: 900px;
 }
 .eixo-itens .item{
 	display: inline-block;
-  column-break-inside: avoid;
-}
-.eixo-itens .item:nth-child(2){
-	height: 100%;
+  	column-break-inside: avoid;
+  	break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  	width: 100%;
+  	margin: 10px;
 }
 .eixo-itens .item h3{
-	text-transform: uppercase;
 	background-color: #839aa6;
 	border-radius: 5px;
 	padding: 10px;
-	font-size: 24px;
+	font-size: 18px;
 	color: #fff;
 	font-weight: 400;
 }
 .eixo-itens .item h4{
 	background-color: #f2f2f2;
-	background: url('../img/border-top.png');
 	border-radius: 5px;
 	padding: 10px;
-	font-size: 18px;
+	font-size: 16px;
 	color: #839aa6;
-	font-weight: 400;	
+	font-weight: 400;
+	width: 100%;
+	display: block;	
+	margin: 7px 0;
 }
 .eixo--item{
 	padding: 20px 0;
 	text-align: left;
+}
+.eixo-itens .item:nth-child(3){
+	height: 880px;
 }
 .eixo--item h3{
 	color: #ee4859;
