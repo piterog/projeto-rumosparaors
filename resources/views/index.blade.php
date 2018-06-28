@@ -27,6 +27,9 @@
         <video autoplay muted>
             <source src="/video/RUMOS.mp4" type="video/mp4">
             <source src="/video/RUMOS.mov" type="video/mp4">
+            <source src="/video/RUMOS.webmhd.webm">
+            <source src="/video/RUMOS.oggtheora.ogv">
+            <source src="/video/RUMOS.iphone5.mp4">
             Browser não suporta mov
         </video>
     </section>
@@ -194,5 +197,3 @@ avance e volte a ser protagonista nacional. </p>
     @endif
 
 @endsection
-
-                            
