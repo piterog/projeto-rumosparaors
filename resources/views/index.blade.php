@@ -53,9 +53,9 @@
     </script>
 @endif
 
-    <section class='video'>
+    <section id="video_home" class='video'>
         <video autoplay muted playsinline>
-            <source src="/video/RUMOS.mp4" type="video/mp4" type="video/mp4">
+            <source src="/video/RUMOS2.mp4" type="video/mp4" type="video/mp4">
             <source src="/video/RUMOS.mov" type="video/mp4">
             <source src="/video/RUMOS.webmhd.webm" type="video/webm; codecs=vp8,vorbis">
             <source src="/video/RUMOS.oggtheora.ogv" type="video/ogg; codecs=theora,vorbis">
