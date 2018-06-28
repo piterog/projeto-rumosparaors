@@ -13,6 +13,7 @@
             @else
             <p class="text-success text-uppercase font-weight-bold">{{ Session::get('message') }}</p>
             <br><br>
+            {{-- 
             <div class='block block-100'>
                     <form action="storeCadastro" method="POST" >
                             {{ csrf_field() }}
@@ -35,7 +36,8 @@
                                 <button type="button" id="sendForm" onclick="test()" class="btn btn-success">Cadastrar</button>
                             </div>
                     </form>
-                </div>
+            </div>
+            --}}
           @endif
           </div>
           <div class="modal-footer">
