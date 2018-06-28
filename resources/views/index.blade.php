@@ -24,7 +24,7 @@
 @endif
 
     <section class='video'>
-        <video autoplay muted>
+        <video autoplay muted playsinline>
             <source src="/video/RUMOS.mp4" type="video/mp4" type="video/mp4">
             <source src="/video/RUMOS.mov" type="video/mp4">
             <source src="/video/RUMOS.webmhd.webm" type="video/webm; codecs=vp8,vorbis">
