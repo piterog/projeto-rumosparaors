@@ -436,7 +436,11 @@ section.contribuicoes .contribuicao{
 	text-transform: uppercase;
 }
 
-.videoLongo{
+.bigImage{
+	padding-top: 10%;
+}
+
+.bigImage img{
 	/*height: 50vh;*/
-	width: 100%;
+	width: 70%;
 }

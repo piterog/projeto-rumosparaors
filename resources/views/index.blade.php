@@ -53,8 +53,9 @@
     </script>
 @endif
 
-    <section class='video'>
-        <video autoplay mute playsinline>
+    <section class='bigImage'>
+        {{-- 
+        <video autoplay playsinline>
             <source src="/video/RUMOS.mp4" type="video/mp4">
             <source src="/video/RUMOS.mov" type="video/mp4">
             <source src="/video/RUMOS.webmhd.webm" type="video/webm; codecs=vp8,vorbis">
@@ -62,13 +63,9 @@
             <source src="/video/RUMOS.iphone5.mp4">
             Browser não suporta mov
         </video>
-    </section>
+         --}}
 
-    <section class='videoLongo'>
-        <video mute playsinline controls>
-            <source src="/video/RUMOS2.mp4" type="video/mp4">
-            Browser não suporta mp4
-        </video>
+         <img src="/img/rumos_grande.png" alt="">
     </section>
 
     <section class='sobre'>
