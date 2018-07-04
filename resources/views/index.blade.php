@@ -13,7 +13,7 @@
             @else
             <p class="text-success text-uppercase font-weight-bold">{{ Session::get('message') }}</p>
             <br><br>
-            {{-- 
+            {{--
             <div class='block block-100'>
                     <form action="storeCadastro" method="POST" >
                             {{ csrf_field() }}
@@ -54,17 +54,6 @@
 @endif
 
     <section class='bigImage'>
-        {{-- 
-        <video autoplay playsinline>
-            <source src="/video/RUMOS.mp4" type="video/mp4">
-            <source src="/video/RUMOS.mov" type="video/mp4">
-            <source src="/video/RUMOS.webmhd.webm" type="video/webm; codecs=vp8,vorbis">
-            <source src="/video/RUMOS.oggtheora.ogv" type="video/ogg; codecs=theora,vorbis">
-            <source src="/video/RUMOS.iphone5.mp4">
-            Browser não suporta mov
-        </video>
-         --}}
-
          <img src="/img/rumos_grande.png" alt="">
     </section>
 
@@ -74,8 +63,8 @@
         <div class='block block-100'>
             <h3>Etapas</h3>
             <p>
-                Nos meses de maio e junho de 2018, foram desenvolvidos cinco encontros temáticos nas áreas de Gestão e Finanças, 
-                Desenvolvimento, Educação, Segurança Pública e Saúde. Em cada segmento, especialistas compartilharam suas experiências. 
+                Nos meses de maio e junho de 2018, foram desenvolvidos cinco encontros temáticos nas áreas de Gestão e Finanças,
+                Desenvolvimento, Educação, Segurança Pública e Saúde. Em cada segmento, especialistas compartilharam suas experiências.
                 Os principais dados e indicadores do Estado passaram por análise minuciosa e se construiu uma série de propostas.
             </p>
             <h3>Objetivo da plataforma</h3>
