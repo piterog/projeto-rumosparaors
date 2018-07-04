@@ -111,6 +111,9 @@ class IndexController extends Controller
                 'email.required' => 'É necessário o seu email',
                 'telefone.required' => 'É necessário o seu telefone',
                 'cidade.required' => 'É necessário a sua cidade',
+                'nome_cadastro.required' => 'É necessário o seu nome',
+                'email_cadastro.required' => 'É necessário o seu email',
+                'telefone_cadastro.required' => 'É necessário o seu telefone',
             ];
 
         $validator = Validator::make($request->all(), [

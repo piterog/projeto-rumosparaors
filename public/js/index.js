@@ -30,6 +30,7 @@ $(document).ready(function(){
   	$('.menu-sandwich').on("click", () => {
         $('.menu-header').toggleClass('menu-header--open');
     });
+
     function backToTop(){
   		var scrollTrigger = 300; // px
         var scrollTop = $(window).scrollTop();
@@ -74,8 +75,14 @@ function test(){
 	if(controle>0){
 		$('body').append('<div class="alert alert-danger" role="alert">Você marcou mais de 10 itens em um mesmo eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		$('#sendForm').attr("disabled","disabled");
+		$('#almostThere').modal();
 	}else{
-		$('form[name="store"]').submit();
+		console.log(controle);
+		$('body').append('<div class="alert alert-danger fade show withoutSelectionMessage" role="alert">Você precisa selecionar ao menos uma opção para prosseguir!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		window.setTimeout(function(){
+			$('.withoutSelectionMessage').alert('close')
+		}, 4000);
+		//$('form[name="store"]').submit();
 		$('#sendForm').removeAttr("disabled");
 	}
 }

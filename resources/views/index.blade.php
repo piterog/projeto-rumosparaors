@@ -111,6 +111,48 @@
         <p>Em cada eixo, marque até 10 propostas que você considera prioritárias para que o Rio Grande avance e volte a ser protagonista nacional</p>
         <form name='store' action="store" method="POST">
             {{ csrf_field() }}
+
+            <div class="modal" id="almostThere" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <p class="text-success text-uppercase font-weight-bold">Estamos quase lá...</p>
+                          <p>Agora para validar seu voto, precisamos completar um cadastro bem rápido.</p>
+                          <br><br>
+                          
+                          <div class='block block-100'>
+                                  {{--<form action="storeCadastro" method="POST" >--}}
+                                {{ csrf_field() }}
+                                <div class="form-group {{ $errors->has('nome_cadastro') ? 'has-error' : ''}}">
+                                    <label for="nome">Nome</label>
+                                    {!! $errors->first('nome_cadastro', '<span class="error-message">(:message)</span>') !!}
+                                    <input type="text" name="nome_cadastro" class="form-control" id="nome_cadastro">
+                                </div>
+                                <div class="form-group {{ $errors->has('email_cadastro') ? 'has-error' : ''}}">
+                                    <label for="email">Email</label>
+                                    {!! $errors->first('email_cadastro', '<span class="error-message">(:message)</span>') !!}
+                                    <input type="email" name="email_cadastro" class="form-control" id="email_cadastro">
+                                </div>
+                                <div class="form-group {{ $errors->has('telefone_cadastro') ? 'has-error' : ''}}">
+                                    <label for="telefone">Telefone(DDD)</label>
+                                    {!! $errors->first('telefone_cadastro', '<span class="error-message">(:message)</span>') !!}
+                                    <input type="text" name="telefone_cadastro" class="form-control" id="telefone_cadastro">
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" id="sendForm" class="btn btn-success">Cadastrar</button>
+                                </div>
+                                  {{--</form>--}}
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
             @forelse($eixos as $eixo)
             <div class='eixo--item'>
                 <h3>EIXO {{ strtoupper($eixo->descricao)}}</h3>
@@ -135,7 +177,7 @@
             @empty
             @endforelse
             <div class="form-group center">
-                <button type="button" id="sendForm" onclick='test()' class="">Enviar</button>
+                <button type="button" onclick="test()" class="">Enviar</button>
             </div>
         </form>
     </section>
