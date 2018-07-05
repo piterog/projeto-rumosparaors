@@ -37,19 +37,6 @@ footer{
 footer p{
 	font-size: 15px;
 }
-form button{
-	background-color: #ee4859;
-	border: none;
-	border-radius: 3px !important;
-	color: #fff;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
-	padding: 10px 20px;
-	-webkit-box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
-	-moz-box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
-	box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
-	margin: 20px !important;
-}
 .center{
 	text-align: center;
 }
@@ -437,10 +424,30 @@ section.contribuicoes .contribuicao{
 }
 
 .bigImage{
-	padding-top: 10%;
+	display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .bigImage img{
 	/*height: 50vh;*/
 	width: 70%;
+}
+form .form-group label{
+	text-align: left !important;
+}
+
+form button{
+	background-color: #ee4859;
+	border: none;
+	border-radius: 3px !important;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	padding: 10px 20px;
+	-webkit-box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
+	-moz-box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
+	box-shadow: 3px 6px 18px 0px rgba(0,0,0,0.28);
+	margin: 20px !important;
 }

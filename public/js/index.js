@@ -65,19 +65,20 @@ $(document).ready(function(){
 		$('.slider').append('<a data-flickr-embed="true"  href="https://www.flickr.com/photos/151944326@N03/albums/72157693306974412" title="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"><img src="https://farm1.staticflickr.com/951/40079955470_8cb8bc9d65_z.jpg" width="320" height="240" alt="03/05/2018 - Lançamento do movimento RumoS no Fundação Iberê Camargo"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>');
 	}
 })
-function test(){
-	for (var item in total) {
-	    if(total[item]>10){
-			 controle++;
-		 }
-	}
-	
+function almostThere(){
+	// for (var item in total) {
+	//     if(total[item]>10){
+	// 		 controle++;
+	// 	 }
+	// }
+	let controle = $('input[type="checkbox"]:checked').length;
 	if(controle>0){
-		$('body').append('<div class="alert alert-danger" role="alert">Você marcou mais de 10 itens em um mesmo eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		$('#sendForm').attr("disabled","disabled");
-		$('#almostThere').modal();
+		if(controle>10){
+			$('body').append('<div class="alert alert-danger" role="alert">Você marcou mais de 10 itens em um mesmo eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		}else{
+			$('#almostThere').modal();
+		}
 	}else{
-		console.log(controle);
 		$('body').append('<div class="alert alert-danger fade show withoutSelectionMessage" role="alert">Você precisa selecionar ao menos uma opção para prosseguir!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		window.setTimeout(function(){
 			$('.withoutSelectionMessage').alert('close')
