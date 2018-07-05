@@ -121,7 +121,7 @@
                           <br><br>
                           
                           <div class='block block-100'>
-                                <form action="storeCadastro" method="POST" >
+                                  {{--<form action="storeCadastro" method="POST" >--}}
                                 {{ csrf_field() }}
                                 <div class="form-group {{ $errors->has('nome_cadastro') ? 'has-error' : ''}}">
                                     <label for="nome">Nome</label>
@@ -141,7 +141,7 @@
                                 <div class="text-center">
                                     <button type="submit" id="sendForm" class="btn btn-success">Cadastrar</button>
                                 </div>
-                            </form>
+                                  {{--</form>--}}
                           </div>
                         </div>
                         <div class="modal-footer">
