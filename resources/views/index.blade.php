@@ -121,7 +121,7 @@
                           <br><br>
                           
                           <div class='block block-100'>
-                            <form action="storeCadastro" method="POST" >
+                                <form action="storeCadastro" method="POST" >
                                 {{ csrf_field() }}
                                 <div class="form-group {{ $errors->has('nome_cadastro') ? 'has-error' : ''}}">
                                     <label for="nome">Nome</label>
@@ -177,7 +177,7 @@
             @empty
             @endforelse
             <div class="form-group center">
-                <button type="button" onclick="almostThere()" class="">Enviar</button>
+                <button type="button" onclick="test()" class="">Enviar</button>
             </div>
         </form>
     </section>
