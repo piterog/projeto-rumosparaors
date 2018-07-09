@@ -4,7 +4,7 @@
 
 
 @if (Session::has('message'))
-    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal" id="modalThanks" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
@@ -13,31 +13,6 @@
             @else
             <p class="text-success text-uppercase font-weight-bold">{{ Session::get('message') }}</p>
             <br><br>
-            {{--
-            <div class='block block-100'>
-                    <form action="storeCadastro" method="POST" >
-                            {{ csrf_field() }}
-                            <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
-                                <label for="nome">Nome</label>
-                                {!! $errors->first('nome', '<span class="error-message">(:message)</span>') !!}
-                                <input type="text" name="nome" class="form-control" id="nome">
-                            </div>
-                            <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
-                                <label for="email">Email</label>
-                                {!! $errors->first('email', '<span class="error-message">(:message)</span>') !!}
-                                <input type="email" name="email" class="form-control" id="email">
-                            </div>
-                            <div class="form-group {{ $errors->has('telefone') ? 'has-error' : ''}}">
-                                <label for="telefone">Telefone(DDD)</label>
-                                {!! $errors->first('telefone', '<span class="error-message">(:message)</span>') !!}
-                                <input type="text" name="telefone" class="form-control" id="telefone">
-                            </div>
-                            <div class="text-center">
-                                <button type="button" id="sendForm" onclick="test()" class="btn btn-success">Cadastrar</button>
-                            </div>
-                    </form>
-            </div>
-            --}}
           @endif
           </div>
           <div class="modal-footer">
@@ -48,7 +23,7 @@
     </div>
     <script>
         window.onload = function() {
-            $('.modal').modal();
+            $('#modalThanks').modal();
         };
     </script>
 @endif
@@ -119,29 +94,26 @@
                           <p class="text-success text-uppercase font-weight-bold">Estamos quase lá...</p>
                           <p>Agora para validar seu voto, precisamos completar um cadastro bem rápido.</p>
                           <br><br>
-                          
                           <div class='block block-100'>
-                                  {{--<form action="storeCadastro" method="POST" >--}}
                                 {{ csrf_field() }}
                                 <div class="form-group {{ $errors->has('nome_cadastro') ? 'has-error' : ''}}">
-                                    <label for="nome">Nome</label>
+                                    <label for="nome_cadastro">Nome</label>
                                     {!! $errors->first('nome_cadastro', '<span class="error-message">(:message)</span>') !!}
                                     <input type="text" required name="nome_cadastro" class="form-control" id="nome_cadastro">
                                 </div>
                                 <div class="form-group {{ $errors->has('email_cadastro') ? 'has-error' : ''}}">
-                                    <label for="email">Email</label>
+                                    <label for="email_cadastro">Email</label>
                                     {!! $errors->first('email_cadastro', '<span class="error-message">(:message)</span>') !!}
                                     <input type="email" required name="email_cadastro" class="form-control" id="email_cadastro">
                                 </div>
                                 <div class="form-group {{ $errors->has('telefone_cadastro') ? 'has-error' : ''}}">
-                                    <label for="telefone">Telefone(DDD)</label>
+                                    <label for="telefone_cadastro">Telefone(DDD)</label>
                                     {!! $errors->first('telefone_cadastro', '<span class="error-message">(:message)</span>') !!}
                                     <input type="text" name="telefone_cadastro" required class="form-control" id="telefone_cadastro">
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" id="sendForm" class="btn btn-success">Cadastrar</button>
                                 </div>
-                                  {{--</form>--}}
                           </div>
                         </div>
                         <div class="modal-footer">
@@ -177,14 +149,14 @@
             @empty
             @endforelse
             <div class="form-group center">
-                <button type="button" onclick="test()" class="">Enviar</button>
+                <button type="button" onclick="almostThere()" class="">Enviar</button>
             </div>
         </form>
     </section>
     <section class='participe'>
         <h2>Participe</h2>
         <p>Este é o seu espaço. Contribua com o Movimento Rumos e envie suas propostas para construir um Rio Grande melhor!</p>
-        <form action="storeParticipe" method="POST" >
+        <form name='storeParticipe' action="storeParticipe" method="POST" >
             {{ csrf_field() }}
             <div class="form-group {{ $errors->has('nome') ? 'has-error' : ''}}">
                 <label for="nome">Nome</label>

@@ -9,6 +9,8 @@ use App\Escolha;
 use App\Prioridade;
 use App\Proposta;
 use App\User;
+use App\Cadastro_votos;
+
 use Illuminate\Support\Facades\Log;
 use DB;
 use Session;
@@ -27,7 +29,6 @@ class IndexController extends Controller
 
         $contribuicoes = Contribuicao::whereVisivel(1)->take(6)->get();
 
-        //return $eixos[0]->propostas[0]->prioridades;
         return view('index', compact('eixos', 'contribuicoes'));
     }
 
@@ -49,7 +50,20 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
+        /*
+            People register
+        */
+        Cadastro_votos::create([
+            'nome' => $request->nome_cadastro,
+            'email' => $request->email_cadastro,
+            'telefone' => $request->telefone_cadastro,
+            'created_at' => 'now()',
+            'updated_at' => 'now()'
+        ]);
         foreach ($request->all() as $key => $v) {
+            /*
+                Vote register
+            */
             if(is_int($key) && Proposta::find($key)){
                foreach($v as $vote){{ 
                     $escolha[] = Escolha::create([
