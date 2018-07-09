@@ -164,7 +164,8 @@ return [
         ],
 
         'widgets' => [
-
+            'App\\Widgets\\Votes',
+            'App\\Widgets\\Contributes',
         ],
 
     ],
