@@ -37,9 +37,6 @@ footer{
 footer p{
 	font-size: 15px;
 }
-.center{
-	text-align: center;
-}
 section{
 	text-align: center;
 	padding: 40px 80px;
@@ -434,10 +431,16 @@ section.contribuicoes .contribuicao{
 	/*height: 50vh;*/
 	width: 70%;
 }
-.form-group label{
+.form-group{
 	text-align: left !important;
 }
-
+.form-group label{
+	text-align: left !important;
+	padding: 5px 0;
+}
+.center{
+	text-align: center !important;
+}
 form button{
 	background-color: #ee4859;
 	border: none;

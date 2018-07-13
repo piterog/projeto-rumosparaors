@@ -111,12 +111,10 @@
                                     {!! $errors->first('telefone_cadastro', '<span class="error-message">(:message)</span>') !!}
                                     <input type="text" name="telefone_cadastro" required class="form-control" id="telefone_cadastro">
                                 </div>
-                                <div class="text-center">
-                                    <button type="submit" id="sendForm" class="btn btn-success">Cadastrar</button>
-                                </div>
                           </div>
                         </div>
                         <div class="modal-footer">
+                          <button type="submit" id="sendForm" class="btn btn-success">Cadastrar</button>
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                         </div>
                       </div>

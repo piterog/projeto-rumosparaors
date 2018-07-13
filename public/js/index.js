@@ -71,19 +71,25 @@ function almostThere(){
 	// 		 controle++;
 	// 	 }
 	// }
-	let controle = $('input[type="checkbox"]:checked').length;
-	if(controle>0){
-		if(controle>10){
-			$('body').append('<div class="alert alert-danger" role="alert">Você marcou mais de 10 itens em um mesmo eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		}else{
-			$('#almostThere').modal();
-		}
-	}else{
+	let control = [];
+	let i = 0;
+
+	$('.eixo--item .eixo--tipos').each((index,element)=>{
+		let inputs = $(element).find('input[type="checkbox"]:checked');
+		let temp = inputs.length > 10 ? true : false;
+		control.push(temp);
+		i += inputs.length
+	});
+
+	if($.inArray(true,control)!==-1){
+		$('body').append('<div class="alert alert-danger" role="alert">Você marcou mais de 10 itens em um mesmo eixo!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+	}else if(i === 0){
 		$('body').append('<div class="alert alert-danger fade show withoutSelectionMessage" role="alert">Você precisa selecionar ao menos uma opção para prosseguir!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		window.setTimeout(function(){
 			$('.withoutSelectionMessage').alert('close')
 		}, 4000);
-		//$('form[name="store"]').submit();
 		$('#sendForm').removeAttr("disabled");
+	}else{
+		$('#almostThere').modal();
 	}
 }
