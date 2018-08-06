@@ -151,6 +151,7 @@
             </div>
         </form>
     </section>
+    {{--
     <section class='participe'>
         <h2>Participe</h2>
         <p>Este é o seu espaço. Contribua com o Movimento Rumos e envie suas propostas para construir um Rio Grande melhor!</p>
@@ -194,6 +195,7 @@
             </div>
         </form>
     </section>
+    --}}
     @if(count($contribuicoes) > 0)
         <section class='contribuicoes'>
             <div class="swiper-container">
