@@ -9,7 +9,7 @@
         <a class="nav-item link-menu" href="#sobre">O que é</a>
         <a class="nav-item link-menu" href="#eixos">Eixos</a>
         <a class="nav-item link-menu" href="#propostas">Propostas e Prioridades</a>
-        <a class="nav-item link-menu" href="#participe">Participe</a>
+        {{--<a class="nav-item link-menu" href="#participe">Participe</a>--}}
       </div>
     </nav>
 </header>
